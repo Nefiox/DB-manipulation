@@ -46,14 +46,21 @@ const moviesController = {
     },
     create: function (req, res) {
         Movies.create(req.body);
-        
-        res.redirect('/movies')
+
+        res.redirect('/movies');
     },
     edit: function(req, res) {
-        
+        Movies.findByPk(req.params.id)
+        .then(Movie => res.render('moviesEdit', { Movie }));
     },
     update: function (req,res) {
+        Movies.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
         
+        res.redirect('/movies');
     },
     delete: function (req, res) {
         
