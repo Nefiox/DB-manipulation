@@ -17,3 +17,8 @@ img{
 figure{
   width: 20%;
 }
+
+.ask_delete {
+  color: red;
+  text-decoration: underline;
+}
